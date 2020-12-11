@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use App\Experience;
 use App\User;
 use Auth;
 
@@ -51,5 +53,23 @@ class HomeController extends Controller
         ]);
       
         return redirect('dashboard')->with(["message"=>"Information updated successfully..!!"]);
+    }
+    
+    public function add_experience(Request $request){
+       
+        $experience = Experience::create([
+            'user_id' => auth()->user()->id,
+            'company_name'=>$request->company_name,
+            'designation' => $request->designation,
+            'job_description' => $request->job_description,
+            'start_date' =>$request->start_date,
+            'end_date' => $request->end_date
+        ]);
+
+        return redirect('dashboard')->with(["message2"=>"Information updated successfully..!!"]);
+    }
+    public function show_ecperiences(){
+        $experiences=Experience::all()->where('user_id',auth()->user()->id);
+        return view('experience.experienceShow',compact('experiences'));
     }
 }

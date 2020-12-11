@@ -40,16 +40,16 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="active ">
+          <li class="">
             <a href="javascript:;">
               <i class="nc-icon nc-bank"></i>
-              <p>Add About Info</p>
+              <p onclick="openinfo()">Add About Info</p>
             </a>
           </li>
           <li>
             <a href="javascript:;">
               <i class="nc-icon nc-diamond"></i>
-              <p>Second Item</p>
+              <p onclick="openexperience()">Second Item</p>
             </a>
           </li>
           <li>
@@ -112,7 +112,7 @@
       <!-- End Navbar -->
      
       <div class="content">
-        <div class="row">
+        <div class="row" id="personal_info"> 
           <div class="col-md-10">
             @if (session("message"))
             <div class="alert alert-success" style="z-index:100;">
@@ -171,10 +171,57 @@
           </div>
           <div class="col-md-2"></div>
         </div>
+        <div class="row" id="experience">
+          @if (session("messag2"))
+          <div class="alert alert-success" style="z-index:100;">
+              {{ session("message2") }}
+          </div>
+          @endif
+            <form action="{{route('experience.add')}}" method="POST">
+              @csrf
+              <h1> Add Your Expereiences</h1>
+              <div class="form-group">
+                <label for="company_name">Add Company/Organization Name </label>
+                <input type="text"  class="form-control form-group" name="company_name" id="company_name" placeholder=" Put Company Name Here...">
+                <label for="designation">Add Your Designation For The Job </label>
+                <input type="text"  class="form-control form-group" name="designation" id="designation" placeholder=" Put Designation Here...">
+                <label for="job_description">Add Your Designation For The Job </label>
+                <textarea type="text" name="job_description" class="form-control row-3" id="job_description" placeholder="Write Your Job Description Here..."></textarea>
+               
+                <label for="start_date">Start Date </label>
+                <input type="date"  class="form-control form-group" name="start_date" id="start_date" >
+                <label for="end_date">End Date </label>
+                <input  type="date"  class="form-control form-group" name="end_date" id="end_date" >
+                <button type="submit" value="submit" class="btn btn-primary"> Add</button>
+              </div> 
+
+            </form>
+            @if (session("message2"))
+            <div class="form-control form-group">
+            <a  href="{{route('experience.show')}}" class="btn btn-primary col-md-6 col-sm-12 col-lg-6 offset-3">View All Added Experiences<a>
+            </div>
+            @endif
+
+        </div>
       </div>
      
     </div>
   </div>
+  <script>
+
+    function openinfo(){
+      document.getElementById('personal_info').style.display="block";
+      document.getElementById('experience').style.display="none";
+    }
+
+    function openexperience(){
+      document.getElementById('experience').style.display="block";
+      document.getElementById('personal_info').style.display="none";
+
+    }
+
+
+  </script>
   <!--   Core JS Files   -->
     <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
     <script src=".{{asset('assets/js/core/popper.min.js')}}"></script>
