@@ -49,15 +49,22 @@
           <li>
             <a href="javascript:;">
               <i class="nc-icon nc-diamond"></i>
-              <p onclick="openexperience()">Second Item</p>
+              <p onclick="openexperience()">Add EXPERIENCE</p>
             </a>
           </li>
           <li>
             <a href="javascript:;">
               <i class="nc-icon nc-pin-3"></i>
-              <p>Third Item</p>
+              <p onclick="openeducation()">Add EDUCATION</p>
             </a>
           </li>
+          <li>
+            <a href="{{route('add.more')}}">
+              <i class="fas fa-user-secret"></i>
+              <p>Add (interest,skills,awards)</p>
+            </a>
+          </li>
+        
         </ul>
       </div>
     </div>
@@ -171,8 +178,9 @@
           </div>
           <div class="col-md-2"></div>
         </div>
+        {{-- experience --}}
         <div class="row" id="experience">
-          @if (session("messag2"))
+          @if (session("message2"))
           <div class="alert alert-success" style="z-index:100;">
               {{ session("message2") }}
           </div>
@@ -198,11 +206,51 @@
             </form>
             @if (session("message2"))
             <div class="form-control form-group">
-            <a  href="{{route('experience.show')}}" class="btn btn-primary col-md-6 col-sm-12 col-lg-6 offset-3">View All Added Experiences<a>
+            <a href="{{route('experience.show')}}" class="btn btn-primary col-md-6 col-sm-12 col-lg-6 offset-3">View All Added Experiences<a>
             </div>
             @endif
 
         </div>
+        {{-- exp-end --}}
+        {{-- education-start --}}
+        <div class="row" id="education">
+          @if (session("message3"))
+          <div class="alert alert-success" style="z-index:100;">
+              {{ session("message3") }}
+          </div>
+          @endif
+            <form action="{{route('education.add')}}" method="POST">
+              @csrf
+              <h1> Add Your Education Info</h1>
+              <div class="form-group">
+                <label for="institution">Add Institution Name </label>
+                <input type="text"  class="form-control form-group" name="institution" id="institution" placeholder=" Put  Instituition Name Here...">
+                <label for="program">Add Program </label>
+                <input type="text"  class="form-control form-group" name="program" id="program" placeholder=" Put Program Name Here...">
+                <label for="gpa">Add CGPA/GPA Obtained </label>
+                <input type="text" name="gpa" class="form-control row-3" id="gpa" placeholder="Put Your Obtained GPA/CGPA Here...">
+               
+                <label for="start_date">Start Date </label>
+                <input type="date"  class="form-control form-group" name="start_date" id="start_date" >
+                <label for="end_date">End Date </label>
+                <input  type="date"  class="form-control form-group" name="end_date" id="end_date" >
+                <button type="submit" value="submit" class="btn btn-primary"> Add</button>
+              </div> 
+
+            </form>
+            @if (session("message3"))
+            <div class="form-control form-group">
+            <a href="{{route('education.show')}}" class="btn btn-primary col-md-6 col-sm-12 col-lg-6 offset-3">View All Added Education Entries<a>
+            </div>
+            @endif
+
+        </div>
+
+        {{-- education-end --}}
+        {{-- skills start --}}
+
+        {{-- skills end --}}
+        
       </div>
      
     </div>
@@ -212,11 +260,23 @@
     function openinfo(){
       document.getElementById('personal_info').style.display="block";
       document.getElementById('experience').style.display="none";
+      document.getElementById('education').style.display="none";
     }
 
     function openexperience(){
       document.getElementById('experience').style.display="block";
+     let doc= document.getElementById('personal_info').style.display="none";
+     document.getElementById('education').style.display="none";
+     doc.classList.add('active');
+
+    }
+    function openeducation(){
+      document.getElementById('education').style.display="block";
       document.getElementById('personal_info').style.display="none";
+      document.getElementById('experience').style.display="none";
+
+    }
+    function openskills(){
 
     }
 

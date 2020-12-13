@@ -24,6 +24,9 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->json('social_links')->nullable();
             $table->string('password');
+            $table->json('skills')->nullable();
+            $table->json('awards')->nullable();
+            $table->text('interests')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
