@@ -34,6 +34,11 @@ Route::post('/add/awards','HomeController@add_awards');
 Route::get('/skills-awards','HomeController@fetch_skills_awards');
 Route::get('/fetch-interesrts','HomeController@fetch_interests');
 Route::post('/add-interests','HomeController@add_interests');
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+    
+})->name('logout');
 
 
 
