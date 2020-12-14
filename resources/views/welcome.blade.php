@@ -4,7 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Portfolio Maker</title>
+            <link rel="icon" type="image/x-icon" href="{{asset('images/profile.jpg')}}" />
+
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -83,9 +85,27 @@
                 <div class="title m-b-md">
                     Personal Portfolio Maker App 
                 </div>
+                <!-- Footer START-->
+                <div>
+                    <p> .</p>
+                    <p> .</p>
+                    <p> .</p>
+                    <p> .</p>
+                    <p> .</p>
+                    <p> .</p>
+                    <p> .</p>
+                    <p> .</p>
+                    
+                    <p class="text-muted small mb-4 mb-lg-0">&copy; 
+                       Farhan Islam 2020. All Rights Reserved.</p>
+                    <a href="https://linktr.ee/farhanislam"> Contact</a>
+
+
+                </div>
 
                 
             </div>
         </div>
+        
     </body>
 </html>

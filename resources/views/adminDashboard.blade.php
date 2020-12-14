@@ -4,12 +4,10 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Paper Dashboard 2 by Creative Tim
-  </title>
+  <link rel="icon" type="image/x-icon" href="{{asset('images/profile.jpg')}}" />
+  <title>Dashboard</title>
+  
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -102,6 +100,9 @@
               <li class="nav-item btn-rotate dropdown">
                 <a class="btn btn-primary ml-3" href="{{route("logout")}}" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
                   Log Out
+                </a>
+                <a class="btn btn-primary ml-3" href="{{route("dashboard")}}" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                  Edit Information
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="#">Action</a>
